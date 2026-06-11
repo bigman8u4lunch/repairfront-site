@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../servicecore/google-sites"
+		}
+	],
+	"settings": {}
+}
