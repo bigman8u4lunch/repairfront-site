@@ -1,119 +1,99 @@
-# RepairFront marketing site (Google Sites)
+# repairfront-site
 
-Static HTML for your public website: landing page, demo request, customer intake, EULA, and Privacy Policy.
+RepairFront marketing website — static HTML for the public site: landing page, demo request, customer intake, EULA, and Privacy Policy.
 
-The **RepairFront app** stays on your normal host (`app.repairfront.com`). These pages can live on **Google Sites** (or any static host).
+The **RepairFront app** stays on `app.repairfront.com`. This repo is the marketing site only.
+
+**Live site:** [https://repairfront.com](https://repairfront.com)  
+**GitHub Pages URL:** [https://bigman8u4lunch.github.io/repairfront-site/](https://bigman8u4lunch.github.io/repairfront-site/)
 
 ## Files
 
 ```
-google-sites/
-  index.html          Home
-  demo.html           Demo request form
-  get-started.html    Customer intake form
-  eula.html           End User License Agreement
-  privacy.html        Privacy Policy
+repairfront-site/
+  index.html              Home
+  demo.html               Demo request form
+  get-started.html        Customer intake form
+  eula.html               End User License Agreement
+  privacy.html            Privacy Policy
+  CNAME                   Custom domain (repairfront.com)
   assets/
-    config.js         ← Edit API URL before publishing
+    config.js             API URLs and site config
     styles.css
-    site.js           Nav + form submission
+    site.js                 Nav + form submission
+    images/                 Site photos (swap anytime)
 ```
 
-## Step 1 — Configure
+## GitHub Pages
 
-Edit `assets/config.js`:
+Site files live at the **repo root**. In GitHub:
+
+1. **Settings → Pages**
+2. **Source:** Deploy from a branch
+3. **Branch:** `main`
+4. **Folder:** `/ (root)`
+
+Do **not** use `/docs` or a subfolder — `index.html` is at the top level.
+
+After you push to `main`, GitHub Pages redeploys automatically (usually within a minute or two).
+
+## Configure
+
+Edit `assets/config.js` before publishing:
 
 ```javascript
 window.REPAIRFRONT = {
-  apiBase: "https://app.repairfront.com",       // your deployed app
+  apiBase: "https://app.repairfront.com",
   appLoginUrl: "https://app.repairfront.com/login",
-  siteBase: "",                                  // see Step 2
+  siteBase: "",   // leave empty for repairfront.com and github.io
 };
 ```
 
-Forms POST to `{apiBase}/api/leads/demo` and `{apiBase}/api/leads/intake`.
+Forms POST to:
+
+- `{apiBase}/api/leads/demo`
+- `{apiBase}/api/leads/intake`
 
 On the app host, ensure:
 
-- `RESEND_API_KEY` + `EMAIL_FROM` are set (lead emails)
+- `RESEND_API_KEY` and `EMAIL_FROM` are set (lead emails)
 - `SALES_CONTACT_EMAIL` is set
-- Optional: `MARKETING_ALLOWED_ORIGINS=https://sites.google.com` (defaults to `*` if unset)
+- `MARKETING_ALLOWED_ORIGINS=https://repairfront.com,https://www.repairfront.com` (defaults to `*` if unset)
 
-## Step 2 — Host the HTML
+## Legal URLs (Intuit / compliance)
 
-Google Sites **cannot upload HTML files directly**. Use one of these:
-
-### Option A — Link from Google Sites (simplest)
-
-1. Host this folder on **GitHub Pages**, **Cloudflare Pages**, or **Firebase Hosting** (free).
-2. In Google Sites, create pages and add **text + buttons** linking to your hosted URLs:
-   - Home → `https://your-host/index.html`
-   - Demo → `https://your-host/demo.html`
-   - etc.
-
-### Option B — Embed in Google Sites (iframe)
-
-1. Host the folder on GitHub Pages (or similar).
-2. In Google Sites: **Insert → Embed → Embed code**
-3. Paste (adjust URL and height):
-
-```html
-<iframe
-  src="https://YOUR-HOST/index.html"
-  width="100%"
-  height="2400"
-  style="border:0;"
-  title="RepairFront"
-></iframe>
-```
-
-4. Repeat for `demo.html` (height ~900), `get-started.html` (~1100), legal pages (~2000).
-
-Set `siteBase` in `config.js` to your hosted base URL so navigation works inside the iframe.
-
-### Option C — Copy legal text only into Google Sites
-
-For EULA/Privacy, you can paste the text from `eula.html` / `privacy.html` into native Google Sites pages. Use **Option B** or **Google Forms** for lead capture if you skip hosted forms.
-
-## Step 3 — Google Sites site map
-
-Suggested Google Sites pages:
-
-| Google Sites page | Content |
-|-------------------|---------|
-| Home | Embed or link to `index.html` |
-| Request demo | Embed or link to `demo.html` |
-| Get started | Embed or link to `get-started.html` |
-| EULA | Embed or link to `eula.html` |
-| Privacy | Embed or link to `privacy.html` |
-
-Point **Sign in** to `https://app.repairfront.com/login`.
-
-## Step 4 — Intuit / legal URLs
-
-Use your **public EULA URL** in Intuit Developer Portal:
-
-- Hosted static: `https://YOUR-HOST/eula.html`
-- Or Google Sites page URL if you pasted content there
-
-Set on the app (optional):
+Public URLs for the app environment:
 
 ```
-LEGAL_EULA_URL=https://YOUR-PUBLIC-EULA-URL
-LEGAL_PRIVACY_URL=https://YOUR-PUBLIC-PRIVACY-URL
+LEGAL_EUL_URL=https://repairfront.com/eula.html
+LEGAL_PRIVACY_URL=https://repairfront.com/privacy.html
 ```
+
+## Swap photos
+
+Replace files in `assets/images/` and push. No build step required.
+
+| File | Used on |
+|------|---------|
+| `hero-fleet.jpg` | Home hero |
+| `feature-workorders.jpg` | Work orders card, demo sidebar |
+| `feature-parts.jpg` | Parts card |
+| `feature-invoicing.jpg` | Invoicing card |
+| `feature-integrations.jpg` | Integrations card |
+| `showcase-shop.jpg` | Home showcase section |
+| `aside-demo.jpg` | Demo page sidebar |
+| `aside-intake.jpg` | Get started sidebar |
+
+Keep the same filename to avoid HTML changes, or add a new file and update the `src` in the matching HTML page.
 
 ## Local preview
 
 ```bash
-cd google-sites
 npx --yes serve .
 ```
 
-Open `http://localhost:3000/index.html`
+Open [http://localhost:3000/index.html](http://localhost:3000/index.html)
 
-## GitHub Pages quick deploy
+## Optional — embed in Google Sites
 
-1. Push the `google-sites/` folder to a repo (or subfolder).
-2. Settings → Pages → deploy from branch.
-3. Site URL becomes `https://USERNAME.github.io/REPO/` — set that as `siteBase` if using iframes.
+If you also use Google Sites, link or iframe to the hosted URLs above (for example `https://repairfront.com/demo.html`). Set `siteBase` in `config.js` to your public site URL if navigation must work inside an iframe.
