@@ -9,9 +9,19 @@
     return base ? base + clean : path.replace(/^\//, "");
   }
 
-  function apiUrl(path) {
-    const base = (cfg().apiBase || "").replace(/\/$/, "");
-    return base + path;
+  function toEmbedUrl(url) {
+    if (!url) return "";
+    var trimmed = url.trim();
+    if (trimmed.indexOf("embedded=true") !== -1) return trimmed;
+    if (trimmed.indexOf("/viewform") !== -1) {
+      return trimmed + (trimmed.indexOf("?") !== -1 ? "&" : "?") + "embedded=true";
+    }
+    return trimmed;
+  }
+
+  function toViewUrl(url) {
+    if (!url) return "";
+    return url.trim().replace("?embedded=true", "").replace("&embedded=true", "");
   }
 
   function wireNav() {
@@ -30,65 +40,37 @@
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   }
 
-  function showMessage(form, html) {
-    form.innerHTML = html;
-  }
+  function wireGoogleForm(iframeId, linkId, configKey) {
+    var iframe = document.getElementById(iframeId);
+    var link = document.getElementById(linkId);
+    var shell = iframe ? iframe.closest(".form-card-embed") : null;
+    var rawUrl = (cfg()[configKey] || "").trim();
 
-  function wireLeadForm(formId, endpoint) {
-    var form = document.getElementById(formId);
-    if (!form) return;
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var submitBtn = form.querySelector('button[type="submit"]');
-      var errorEl = form.querySelector(".form-error");
-      if (errorEl) errorEl.textContent = "";
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Submitting...";
+    if (!rawUrl) {
+      if (shell) {
+        shell.innerHTML =
+          '<div class="form-placeholder"><h2>Form link not set yet</h2><p>Add the Google Form URL to <code>assets/config.js</code> (<code>' +
+          configKey +
+          "</code>).</p></div>";
       }
+      return;
+    }
 
-      var data = {};
-      new FormData(form).forEach(function (value, key) {
-        data[key] = value;
-      });
+    var embedUrl = toEmbedUrl(rawUrl);
+    var viewUrl = toViewUrl(rawUrl);
 
-      fetch(apiUrl(endpoint), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-        .then(function (response) {
-          return response.json().then(function (payload) {
-            return { ok: response.ok, payload: payload };
-          });
-        })
-        .then(function (result) {
-          if (!result.ok) {
-            throw new Error(result.payload.error || "Unable to submit your request.");
-          }
-          showMessage(
-            form,
-            '<div class="form-success"><h2>Request received</h2><p>Thanks for reaching out. Our team will follow up shortly.</p></div>'
-          );
-        })
-        .catch(function (err) {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.getAttribute("data-label") || "Submit";
-          }
-          if (errorEl) {
-            errorEl.textContent = err.message || "Unable to submit your request. Please try again.";
-          }
-        });
-    });
+    if (iframe) iframe.src = embedUrl;
+    if (link) {
+      link.href = viewUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     wireNav();
     wireFooterYear();
-    wireLeadForm("demo-form", "/api/leads/demo");
-    wireLeadForm("intake-form", "/api/leads/intake");
+    wireGoogleForm("demo-form-embed", "demo-form-link", "demoFormUrl");
+    wireGoogleForm("get-started-form-embed", "get-started-form-link", "getStartedFormUrl");
   });
 })();

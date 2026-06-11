@@ -2,7 +2,7 @@
 
 RepairFront marketing website — static HTML for the public site: landing page, demo request, customer intake, EULA, and Privacy Policy.
 
-The **RepairFront app** stays on `app.repairfront.com`. This repo is the marketing site only.
+This repo is **standalone**. The only connection to the RepairFront app is the **Sign in** button (`app.repairfront.com/login`). Demo and get-started use **Google Forms** embedded on the site.
 
 **Live site:** [https://repairfront.com](https://repairfront.com)  
 **GitHub Pages URL:** [https://bigman8u4lunch.github.io/repairfront-site/](https://bigman8u4lunch.github.io/repairfront-site/)
@@ -18,9 +18,9 @@ repairfront-site/
   privacy.html            Privacy Policy
   CNAME                   Custom domain (repairfront.com)
   assets/
-    config.js             API URLs and site config
+    config.js             Sign-in URL + Google Form links
     styles.css
-    site.js                 Nav + form submission
+    site.js               Nav + embed Google Forms
     images/                 Site photos (swap anytime)
 ```
 
@@ -39,35 +39,28 @@ After you push to `main`, GitHub Pages redeploys automatically (usually within a
 
 ## Configure
 
-Edit `assets/config.js` before publishing:
+Edit `assets/config.js`:
 
 ```javascript
 window.REPAIRFRONT = {
-  apiBase: "https://app.repairfront.com",
   appLoginUrl: "https://app.repairfront.com/login",
-  siteBase: "",   // leave empty for repairfront.com and github.io
+  demoFormUrl: "https://docs.google.com/forms/d/e/YOUR_DEMO_FORM/viewform",
+  getStartedFormUrl: "https://docs.google.com/forms/d/e/YOUR_INTAKE_FORM/viewform",
+  siteBase: "",
 };
 ```
 
-Forms POST to:
+- **`appLoginUrl`** — the only link to the app (Sign in button).
+- **`demoFormUrl`** / **`getStartedFormUrl`** — Google Form links for each page.
 
-- `{apiBase}/api/leads/demo`
-- `{apiBase}/api/leads/intake`
+### Create the Google Forms
 
-On the app host, ensure:
+1. Go to [Google Forms](https://forms.google.com) and create two forms (demo + get started), or one form with a “Request type” question.
+2. Add fields you care about (name, email, company, phone, fleet size, message, etc.).
+3. **Send** → link icon → copy the form URL.
+4. Paste into `config.js` and push.
 
-- `RESEND_API_KEY` and `EMAIL_FROM` are set (lead emails)
-- `SALES_CONTACT_EMAIL` is set
-- `MARKETING_ALLOWED_ORIGINS=https://repairfront.com,https://www.repairfront.com` (defaults to `*` if unset)
-
-## Legal URLs (Intuit / compliance)
-
-Public URLs for the app environment:
-
-```
-LEGAL_EUL_URL=https://repairfront.com/eula.html
-LEGAL_PRIVACY_URL=https://repairfront.com/privacy.html
-```
+Responses land in Google Sheets automatically if you enable that in the form settings. Turn on email notifications under **Responses → ⋮ → Get email notifications for new responses**.
 
 ## Swap photos
 
