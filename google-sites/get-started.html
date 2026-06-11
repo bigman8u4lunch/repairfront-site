@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Get started | RepairFront</title>
+    <meta name="description" content="Submit your shop details to begin onboarding with RepairFront." />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/config.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="logo" data-href="/index.html" href="index.html">RepairFront<span class="logo-accent">™</span></a>
+        <nav class="site-nav" aria-label="Main">
+          <a data-href="/demo.html" href="demo.html">Request demo</a>
+          <a data-href="/get-started.html" href="get-started.html">Get started</a>
+          <a id="nav-login" class="btn-primary" href="https://app.repairfront.com/login">Sign in</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="page-header">
+        <h1>Get started with RepairFront</h1>
+        <p>
+          Share a few details about your business and our team will reach out to discuss setup, pricing, and onboarding.
+        </p>
+      </div>
+
+      <div class="form-shell">
+        <div class="form-card">
+          <form id="intake-form" class="form-grid">
+            <div class="form-grid form-grid-2">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field">
+                <label for="company">Company / shop name</label>
+                <input id="company" name="company" type="text" required autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+              </div>
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field">
+                <label for="businessType">Business type</label>
+                <select id="businessType" name="businessType" required>
+                  <option value="">Select business type</option>
+                  <option value="fleet">Fleet / trucking</option>
+                  <option value="heavy-duty">Heavy-duty repair</option>
+                  <option value="mobile">Mobile service</option>
+                  <option value="dealership">Dealership service</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="unitsCount">Units managed</label>
+                <input id="unitsCount" name="unitsCount" type="text" placeholder="e.g. 45 trucks" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="currentSoftware">Current software</label>
+              <input
+                id="currentSoftware"
+                name="currentSoftware"
+                type="text"
+                placeholder="Optional — what do you use today?"
+              />
+            </div>
+            <div class="field">
+              <label for="message">Anything else we should know?</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Timeline, locations, integrations, or team size."
+              ></textarea>
+            </div>
+            <p class="form-error" role="alert"></p>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" data-label="Submit intake form">Submit intake form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p>© <span id="footer-year"></span> RepairFront. Fleet and shop operations platform.</p>
+        <div class="footer-links">
+          <a data-href="/eula.html" href="eula.html">EULA</a>
+          <a data-href="/privacy.html" href="privacy.html">Privacy Policy</a>
+          <a data-href="/demo.html" href="demo.html">Request demo</a>
+          <a data-href="/get-started.html" href="get-started.html">Get started</a>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

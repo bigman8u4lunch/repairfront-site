@@ -1,0 +1,25 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets (if you ever add env files)
+.env
+.env.*
+!.env.example
+
+# Local dev (if you run npx serve / npm later)
+node_modules/
+
+# Hosting tooling
+.netlify/
+
+# Logs
+*.log
+npm-debug.log*
