@@ -558,6 +558,66 @@ img {
   color: var(--text-secondary);
 }
 
+.form-card-embed {
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .form-card-embed {
+    padding: 2rem;
+  }
+}
+
+.form-embed-intro {
+  margin: 0 0 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.google-form-embed {
+  display: block;
+  width: 100%;
+  min-height: 75rem;
+  border: 0;
+  background: transparent;
+}
+
+.form-embed-fallback {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.form-embed-fallback a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.form-embed-fallback a:hover {
+  text-decoration: underline;
+}
+
+.form-placeholder {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.form-placeholder h2 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.form-placeholder p {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.form-placeholder code {
+  font-size: 0.8125rem;
+}
+
 .legal-article header {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;

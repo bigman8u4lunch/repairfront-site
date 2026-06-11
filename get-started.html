@@ -54,67 +54,20 @@
           </div>
 
           <div class="form-shell">
-            <div class="form-card">
-          <form id="intake-form" class="form-grid">
-            <div class="form-grid form-grid-2">
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" required autocomplete="name" />
-              </div>
-              <div class="field">
-                <label for="email">Work email</label>
-                <input id="email" name="email" type="email" required autocomplete="email" />
-              </div>
-            </div>
-            <div class="form-grid form-grid-2">
-              <div class="field">
-                <label for="company">Company / shop name</label>
-                <input id="company" name="company" type="text" required autocomplete="organization" />
-              </div>
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" required autocomplete="tel" />
-              </div>
-            </div>
-            <div class="form-grid form-grid-2">
-              <div class="field">
-                <label for="businessType">Business type</label>
-                <select id="businessType" name="businessType" required>
-                  <option value="">Select business type</option>
-                  <option value="fleet">Fleet / trucking</option>
-                  <option value="heavy-duty">Heavy-duty repair</option>
-                  <option value="mobile">Mobile service</option>
-                  <option value="dealership">Dealership service</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="unitsCount">Units managed</label>
-                <input id="unitsCount" name="unitsCount" type="text" placeholder="e.g. 45 trucks" />
-              </div>
-            </div>
-            <div class="field">
-              <label for="currentSoftware">Current software</label>
-              <input
-                id="currentSoftware"
-                name="currentSoftware"
-                type="text"
-                placeholder="Optional — what do you use today?"
-              />
-            </div>
-            <div class="field">
-              <label for="message">Anything else we should know?</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Timeline, locations, integrations, or team size."
-              ></textarea>
-            </div>
-            <p class="form-error" role="alert"></p>
-            <div class="form-actions">
-              <button type="submit" class="btn-primary" data-label="Submit intake form">Submit intake form</button>
-            </div>
-          </form>
+            <div class="form-card form-card-embed">
+              <p class="form-embed-intro">
+                Share a few details about your business and our team will reach out about setup and onboarding.
+              </p>
+              <iframe
+                id="get-started-form-embed"
+                class="google-form-embed"
+                title="Get started with RepairFront"
+                loading="lazy"
+              ></iframe>
+              <p class="form-embed-fallback">
+                Prefer a new tab?
+                <a id="get-started-form-link" href="#">Open the intake form</a>.
+              </p>
             </div>
           </div>
         </div>
