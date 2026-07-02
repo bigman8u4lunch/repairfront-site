@@ -4,8 +4,25 @@ RepairFront marketing website — static HTML for the public site: landing page,
 
 This repo is **standalone**. The only connection to the RepairFront app is the **Sign in** button (`app.repairfront.com/login`). Demo and get-started use **Google Forms** embedded on the site.
 
-**Live site:** [https://repairfront.com](https://repairfront.com)  
+**Live site:** [https://www.repairfront.com](https://www.repairfront.com) (canonical)  
 **GitHub Pages URL:** [https://bigman8u4lunch.github.io/repairfront-site/](https://bigman8u4lunch.github.io/repairfront-site/)
+
+### Custom domain (important)
+
+Production is hosted on **Vercel**. Use **`www.repairfront.com`** as the canonical URL.
+
+- **`www.repairfront.com`** → Vercel (current deployment)
+- **`repairfront.com`** (apex) → should **308 redirect** to `www` (configured in Vercel + `vercel.json`)
+
+If the apex URL shows stale content (for example an old homepage with app screenshots) while `www` looks correct:
+
+1. In [Vercel](https://vercel.com) → **repairfront-site** project → **Settings → Domains**, confirm **both** `repairfront.com` and `www.repairfront.com` are on the **same** project and show **Valid**.
+2. **Redeploy** production after pushing to `main`.
+3. Clear browser cache for `repairfront.com`, or test in a private window.
+
+`vercel.json` in this repo enforces apex → www redirect and short cache on HTML so updates propagate faster.
+
+If GitHub Pages is still enabled with custom domain `repairfront.com`, remove that custom domain in GitHub **Settings → Pages** to avoid conflicting with Vercel.
 
 ## Files
 
