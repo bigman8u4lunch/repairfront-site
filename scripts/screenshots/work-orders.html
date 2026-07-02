@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Work Orders</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .tab {
+        padding: 0.4rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+      }
+
+      .tab.active {
+        background: var(--surface-muted);
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">RepairFront<span>™</span></div>
+        <span class="nav-item">Dashboard</span>
+        <span class="nav-item active">Work Orders</span>
+        <span class="nav-item">Schedule</span>
+        <span class="nav-item">Parts</span>
+        <span class="nav-item">Invoices</span>
+        <span class="nav-item">Customers</span>
+        <span class="nav-item">Units</span>
+      </aside>
+      <main class="main">
+        <h1 class="page-title">Work Orders</h1>
+        <p class="page-subtitle">Track jobs from intake through completion</p>
+        <div class="toolbar">
+          <div class="tabs">
+            <span class="tab active">All open</span>
+            <span class="tab">Service requests</span>
+            <span class="tab">PM due</span>
+          </div>
+          <span class="btn">New work order</span>
+        </div>
+        <div class="panel" style="margin-top: 0.75rem">
+          <table>
+            <thead>
+              <tr>
+                <th>WO #</th>
+                <th>Customer</th>
+                <th>Unit</th>
+                <th>Technician</th>
+                <th>Status</th>
+                <th>Opened</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>WO-10490</td>
+                <td>Great Plains Transport</td>
+                <td>Kenworth T680 #204</td>
+                <td>J. Martinez</td>
+                <td><span class="badge badge-progress">In progress</span></td>
+                <td>Jul 2</td>
+              </tr>
+              <tr>
+                <td>WO-10488</td>
+                <td>Iron Ridge Construction</td>
+                <td>Volvo L90H Loader</td>
+                <td>M. Chen</td>
+                <td><span class="badge badge-open">Open</span></td>
+                <td>Jul 1</td>
+              </tr>
+              <tr>
+                <td>WO-10485</td>
+                <td>Valley Ag Co-op</td>
+                <td>John Deere 8R 370</td>
+                <td>R. Brooks</td>
+                <td><span class="badge badge-progress">In progress</span></td>
+                <td>Jun 30</td>
+              </tr>
+              <tr>
+                <td>WO-10483</td>
+                <td>Northstar Refrigerated</td>
+                <td>Thermo King reefer #88</td>
+                <td>S. Patel</td>
+                <td><span class="badge badge-open">Open</span></td>
+                <td>Jun 30</td>
+              </tr>
+              <tr>
+                <td>WO-10480</td>
+                <td>County Fleet Services</td>
+                <td>Ford F-550 Service Truck</td>
+                <td>J. Martinez</td>
+                <td><span class="badge badge-progress">In progress</span></td>
+                <td>Jun 29</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

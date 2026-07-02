@@ -76,8 +76,31 @@ Replace files in `assets/images/` and push. No build step required.
 | `showcase-shop.jpg` | Home showcase section |
 | `aside-demo.jpg` | Demo page sidebar |
 | `aside-intake.jpg` | Get started sidebar |
+| `app-dashboard.png` | Home — product screenshots (hero) |
+| `app-work-orders.png` | Home — product screenshots |
+| `app-invoices.png` | Home — product screenshots |
+| `app-portal.png` | Home — product screenshots |
 
 Keep the same filename to avoid HTML changes, or add a new file and update the `src` in the matching HTML page.
+
+### App screenshots (real captures)
+
+Replace the PNGs in `assets/images/` with real app screenshots. **Use these exact filenames** — no HTML changes needed:
+
+| File | Screen to capture |
+|------|-------------------|
+| `app-dashboard.png` | Staff **Dashboard** (large hero image on homepage) |
+| `app-work-orders.png` | Staff **Work orders** list |
+| `app-invoices.png` | **Reports** — finance & ownership |
+| `app-portal.png` | **Schedule** — month view |
+
+To re-apply privacy blurs (shop name, customers, VINs, technicians) after swapping source images, update regions in `scripts/redact-screenshots.mjs` and run:
+
+```bash
+node scripts/redact-screenshots.mjs
+```
+
+(Requires `sharp` from the sibling `servicecore` repo.)
 
 ## Local preview
 

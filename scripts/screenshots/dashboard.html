@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">RepairFront<span>™</span></div>
+        <span class="nav-item active">Dashboard</span>
+        <span class="nav-item">Work Orders</span>
+        <span class="nav-item">Schedule</span>
+        <span class="nav-item">Parts</span>
+        <span class="nav-item">Invoices</span>
+        <span class="nav-item">Customers</span>
+        <span class="nav-item">Units</span>
+      </aside>
+      <main class="main">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-subtitle">Shop overview — Thursday, Jul 2</p>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-label">Open Work Orders</div>
+            <div class="stat-value">24</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Needs Authorization</div>
+            <div class="stat-value warn">3</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Unpaid Invoices</div>
+            <div class="stat-value warn">7</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Active Customers</div>
+            <div class="stat-value">142</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Needs authorization</div>
+          <table>
+            <thead>
+              <tr>
+                <th>WO #</th>
+                <th>Customer</th>
+                <th>Unit</th>
+                <th>Status</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>WO-10482</td>
+                <td>Midwest Hauling LLC</td>
+                <td>Unit 118 — Peterbilt 579</td>
+                <td><span class="badge badge-awaiting">Awaiting approval</span></td>
+                <td class="money">$2,840.00</td>
+              </tr>
+              <tr>
+                <td>WO-10476</td>
+                <td>County Fleet Services</td>
+                <td>CAT 320 Excavator</td>
+                <td><span class="badge badge-awaiting">Awaiting approval</span></td>
+                <td class="money">$6,120.50</td>
+              </tr>
+              <tr>
+                <td>WO-10471</td>
+                <td>River City Logistics</td>
+                <td>Freightliner Cascadia</td>
+                <td><span class="badge badge-awaiting">Awaiting approval</span></td>
+                <td class="money">$1,455.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

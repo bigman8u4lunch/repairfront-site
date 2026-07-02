@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Invoices</title>
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">RepairFront<span>™</span></div>
+        <span class="nav-item">Dashboard</span>
+        <span class="nav-item">Work Orders</span>
+        <span class="nav-item">Schedule</span>
+        <span class="nav-item">Parts</span>
+        <span class="nav-item active">Invoices</span>
+        <span class="nav-item">Customers</span>
+        <span class="nav-item">Units</span>
+      </aside>
+      <main class="main">
+        <h1 class="page-title">Invoices</h1>
+        <p class="page-subtitle">Billing, payments, and customer statements</p>
+        <div class="summary">
+          <div class="stat-card">
+            <div class="stat-label">Outstanding</div>
+            <div class="stat-value warn money">$48,290.00</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Paid this month</div>
+            <div class="stat-value money">$126,440.00</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Open invoices</div>
+            <div class="stat-value">18</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Recent invoices</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Invoice</th>
+                <th>Customer</th>
+                <th>Work order</th>
+                <th>Status</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INV-8821</td>
+                <td>Midwest Hauling LLC</td>
+                <td>WO-10482</td>
+                <td><span class="badge badge-awaiting">Unpaid</span></td>
+                <td class="money">$2,840.00</td>
+              </tr>
+              <tr>
+                <td>INV-8816</td>
+                <td>Great Plains Transport</td>
+                <td>WO-10475</td>
+                <td><span class="badge badge-paid">Paid</span></td>
+                <td class="money">$0.00</td>
+              </tr>
+              <tr>
+                <td>INV-8812</td>
+                <td>Iron Ridge Construction</td>
+                <td>WO-10470</td>
+                <td><span class="badge badge-awaiting">Unpaid</span></td>
+                <td class="money">$9,215.00</td>
+              </tr>
+              <tr>
+                <td>INV-8808</td>
+                <td>River City Logistics</td>
+                <td>WO-10468</td>
+                <td><span class="badge badge-paid">Paid</span></td>
+                <td class="money">$0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
