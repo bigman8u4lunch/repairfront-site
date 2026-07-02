@@ -17,6 +17,7 @@ repairfront-site/
   eula.html               End User License Agreement
   privacy.html            Privacy Policy
   data-brokers.html       Data brokers & privacy (no sale of personal information)
+  knowledge-licensing.html  Commercial knowledge data licenses (anonymized aggregates)
   CNAME                   Custom domain (repairfront.com)
   assets/
     config.js             Sign-in URL + Google Form links
