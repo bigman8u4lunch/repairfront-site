@@ -29,6 +29,14 @@
       el.setAttribute("href", siteUrl(el.getAttribute("data-href")));
     });
 
+    var path = window.location.pathname.replace(/\/$/, "");
+    var current = !path || path === "/" ? "/index.html" : path.startsWith("/") ? path : "/" + path;
+    document.querySelectorAll(".site-nav a[data-href]").forEach(function (link) {
+      if (link.getAttribute("data-href") === current) {
+        link.setAttribute("aria-current", "page");
+      }
+    });
+
     var login = document.getElementById("nav-login");
     if (login && cfg().appLoginUrl) {
       login.href = cfg().appLoginUrl;
