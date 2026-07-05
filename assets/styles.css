@@ -273,6 +273,50 @@ img {
   }
 }
 
+.ecosystem-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .ecosystem-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .ecosystem-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card-kicker {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ecosystem-intent-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.ecosystem-intent-list li + li {
+  margin-top: 0.35rem;
+}
+
+.ecosystem-intent-card p:last-child {
+  margin: 1rem 0 0;
+}
+
 .card {
   border: 1px solid var(--border);
   border-radius: 0.75rem;
