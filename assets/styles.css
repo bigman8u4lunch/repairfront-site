@@ -948,6 +948,12 @@ img {
   margin: 0;
 }
 
+.legal-body p + p,
+.legal-body p + .legal-list,
+.legal-body .legal-list + p {
+  margin-top: 0.75rem;
+}
+
 .legal-body a {
   color: var(--accent);
   font-weight: 600;
@@ -955,6 +961,18 @@ img {
 
 .legal-body a:hover {
   text-decoration: underline;
+}
+
+.legal-callout {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface-muted);
+}
+
+.legal-callout h2 {
+  margin-top: 0;
 }
 
 .legal-list {
