@@ -93,7 +93,9 @@
         "</p>";
     var cta = comingSoon
       ? ""
-      : '<a class="btn-secondary pricing-cta" data-href="/get-started.html" href="get-started.html">Talk to sales</a>';
+      : '<div class="pricing-cta-wrap">' +
+        '<a class="btn-secondary pricing-cta" data-href="/get-started.html" href="get-started.html">Talk to sales</a>' +
+        "</div>";
 
     return (
       '<article class="pricing-card pricing-card-addon' +

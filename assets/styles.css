@@ -1265,15 +1265,22 @@ img {
 }
 
 .pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.5rem;
   width: auto;
   align-self: flex-start;
-  text-align: center;
+  line-height: 1.25;
 }
 
-.pricing-card-addon .pricing-cta {
+.pricing-cta-wrap {
   margin-top: auto;
   padding-top: 1.5rem;
+}
+
+.pricing-cta-wrap .pricing-cta {
+  margin-top: 0;
 }
 
 .pricing-addon-note {
