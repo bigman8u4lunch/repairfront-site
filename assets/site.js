@@ -41,6 +41,13 @@
     if (login && cfg().appLoginUrl) {
       login.href = cfg().appLoginUrl;
     }
+
+    var signupUrl = (cfg().appSignupUrl || "").trim();
+    if (signupUrl) {
+      document.querySelectorAll("[data-app-signup]").forEach(function (el) {
+        el.setAttribute("href", signupUrl);
+      });
+    }
   }
 
   function wireFooterYear() {

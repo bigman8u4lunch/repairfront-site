@@ -5,6 +5,16 @@
       "has": [{ "type": "host", "value": "repairfront.com" }],
       "destination": "https://www.repairfront.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/signup",
+      "destination": "https://app.repairfront.com/signup",
+      "permanent": false
+    },
+    {
+      "source": "/signup.html",
+      "destination": "https://app.repairfront.com/signup",
+      "permanent": false
     }
   ],
   "headers": [
