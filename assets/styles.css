@@ -1244,8 +1244,60 @@ img {
 }
 
 .pricing-addons-heading {
-  margin: 0 0 1rem;
+  margin: 0 0 0.35rem;
   font-size: 1.0625rem;
+}
+
+.pricing-addons-intro {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.pricing-coming-soon {
+  margin: 1rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+}
+
+.pricing-card-coming-soon {
+  opacity: 0.92;
+}
+
+.pricing-cta-disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: default;
+}
+
+.pricing-compare-coming-soon .pricing-compare-soon-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.pricing-compare-addon-pill {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border));
+  border-radius: 0.375rem;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .pricing-compare {

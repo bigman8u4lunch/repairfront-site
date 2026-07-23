@@ -220,6 +220,35 @@ window.REPAIRFRONT_PRICING = {
           },
         ],
       },
+      {
+        name: "Paid add-ons",
+        rows: [
+          {
+            feature: "Mitchell1 ProDemand",
+            starter: "Coming soon",
+            professional: "Coming soon",
+            business: "Coming soon",
+          },
+          {
+            feature: "MOTOR",
+            starter: "Coming soon",
+            professional: "Coming soon",
+            business: "Coming soon",
+          },
+          {
+            feature: "SMS notifications",
+            starter: "Coming soon",
+            professional: "Coming soon",
+            business: "Coming soon",
+          },
+          {
+            feature: "Parts Cross",
+            starter: "Coming soon",
+            professional: "Coming soon",
+            business: "Coming soon",
+          },
+        ],
+      },
     ],
   },
   fleetFeatureMatrix: {
@@ -335,16 +364,20 @@ window.REPAIRFRONT_PRICING = {
           },
         ],
       },
+      {
+        name: "Paid add-ons",
+        rows: [
+          {
+            feature: "SMS notifications",
+            fleet_essentials: "Coming soon",
+            fleet_operations: "Coming soon",
+            fleet_command: "Coming soon",
+          },
+        ],
+      },
     ],
   },
   shopAddons: [
-    {
-      id: "mitchell1",
-      name: "Mitchell1 ProDemand",
-      monthly: 69,
-      description: "Launch ProDemand estimates from work order lines and import parts and labor.",
-      note: "Requires active Mitchell1 subscription with Mitchell1.",
-    },
     {
       id: "extra_user",
       name: "Additional user",
@@ -356,6 +389,33 @@ window.REPAIRFRONT_PRICING = {
       name: "Additional location",
       monthly: 109,
       description: "Separate shop location with its own organization under one billing account.",
+    },
+  ],
+  paidAddons: [
+    {
+      id: "mitchell1",
+      name: "Mitchell1 ProDemand",
+      description: "Launch ProDemand estimates from work order lines and import parts and labor.",
+      note: "Requires active Mitchell1 subscription with Mitchell1.",
+      comingSoon: true,
+    },
+    {
+      id: "motor",
+      name: "MOTOR",
+      description: "MOTOR estimating and labor guides on work order lines for parts and labor import.",
+      comingSoon: true,
+    },
+    {
+      id: "sms_notifications",
+      name: "SMS notifications",
+      description: "Staff text alerts for work orders, callbacks, and shop notifications.",
+      comingSoon: true,
+    },
+    {
+      id: "parts_cross",
+      name: "Parts Cross",
+      description: "Cross-reference OEM and aftermarket part numbers to find interchangeable options.",
+      comingSoon: true,
     },
   ],
   operatorAddons: [
