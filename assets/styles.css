@@ -232,6 +232,48 @@ img {
   gap: 0.75rem;
 }
 
+.hero-door-note {
+  margin: 0.85rem 0 0;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.hero-audience-links {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.hero-audience-links a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero-audience-links a:hover {
+  color: var(--accent-hover);
+}
+
+.door-crosslink {
+  margin: 1rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.door-crosslink a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.door-crosslink a:hover {
+  color: var(--accent-hover);
+}
+
+.page-header .hero-actions {
+  margin-top: 1.25rem;
+}
+
 .section {
   padding: 4rem 1rem;
   max-width: var(--max-width);

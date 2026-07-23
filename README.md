@@ -2,7 +2,12 @@
 
 RepairFront marketing website — static HTML for the public site: landing page, demo request, customer intake, EULA, and Privacy Policy.
 
-This repo is **standalone**. The only connection to the RepairFront app is the **Sign in** button (`app.repairfront.com/login`). Demo and get-started use **Google Forms** embedded on the site.
+This repo is **standalone**. Links to the RepairFront app:
+- **Sign in** → `app.repairfront.com/login`
+- **Start free trial** (self-serve shop trial) → `app.repairfront.com/signup`
+- **Talk to sales** / get started → Google Form intake on this site
+
+Demo and get-started use **Google Forms** embedded on the site.
 
 **Live site:** [https://www.repairfront.com](https://www.repairfront.com) (canonical)  
 **GitHub Pages URL:** [https://bigman8u4lunch.github.io/repairfront-site/](https://bigman8u4lunch.github.io/repairfront-site/)
@@ -63,13 +68,15 @@ Edit `assets/config.js`:
 ```javascript
 window.REPAIRFRONT = {
   appLoginUrl: "https://app.repairfront.com/login",
+  appSignupUrl: "https://app.repairfront.com/signup",
   demoFormUrl: "https://docs.google.com/forms/d/e/YOUR_DEMO_FORM/viewform",
   getStartedFormUrl: "https://docs.google.com/forms/d/e/YOUR_INTAKE_FORM/viewform",
   siteBase: "",
 };
 ```
 
-- **`appLoginUrl`** — the only link to the app (Sign in button).
+- **`appLoginUrl`** — Sign in button.
+- **`appSignupUrl`** — Start free trial (shop self-serve signup).
 - **`demoFormUrl`** / **`getStartedFormUrl`** — Google Form links for each page.
 
 ### Create the Google Forms

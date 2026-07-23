@@ -20,6 +20,10 @@
     return base ? base + "/get-started.html" : "get-started.html";
   }
 
+  function signupUrl() {
+    return (cfg().appSignupUrl || "https://app.repairfront.com/signup").trim();
+  }
+
   function renderPlanCard(plan, interval) {
     var isAnnual = interval === "annual";
     var amount = isAnnual ? plan.annual : plan.monthly;
@@ -35,6 +39,10 @@
         return "<li>" + feature + "</li>";
       })
       .join("");
+    var isFleet = String(plan.id || "").indexOf("fleet_") === 0;
+    var cta = isFleet
+      ? '<a class="btn-secondary pricing-cta" data-href="/get-started.html" href="get-started.html">Talk to sales</a>'
+      : '<a class="btn-primary pricing-cta" data-app-signup href="https://app.repairfront.com/signup">Start free trial</a>';
 
     return (
       '<article class="pricing-card' +
@@ -67,7 +75,7 @@
       '<ul class="pricing-features">' +
       features +
       "</ul>" +
-      '<a class="btn-primary pricing-cta" data-href="/get-started.html" href="get-started.html">Get started</a>' +
+      cta +
       "</article>"
     );
   }
@@ -288,6 +296,9 @@
 
       document.querySelectorAll(".pricing-cta[data-href]").forEach(function (link) {
         link.setAttribute("href", getStartedUrl());
+      });
+      document.querySelectorAll(".pricing-cta[data-app-signup]").forEach(function (link) {
+        link.setAttribute("href", signupUrl());
       });
     }
 

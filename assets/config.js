@@ -1,7 +1,9 @@
 /* Edit before publishing — see README.md */
 window.REPAIRFRONT = {
-  /** Staff sign-in — only link to the RepairFront app */
+  /** Staff sign-in — RepairFront app */
   appLoginUrl: "https://app.repairfront.com/login",
+  /** Self-serve shop trial (Starter / Professional / Business) */
+  appSignupUrl: "https://app.repairfront.com/signup",
   /**
    * Google Form URLs (Share → send → link, or Embed HTML src).
    * Paste the form link or embed URL for each page.
