@@ -74,22 +74,32 @@
 
   function renderAddonCard(addon) {
     var note = addon.note ? '<p class="pricing-addon-note">' + addon.note + "</p>" : "";
+    var comingSoon = !!addon.comingSoon;
+    var amountBlock = comingSoon
+      ? '<p class="pricing-coming-soon">Coming soon</p>'
+      : '<p class="pricing-amount">' +
+        '<span class="pricing-amount-value">' +
+        formatMoney(addon.monthly) +
+        "</span>" +
+        '<span class="pricing-amount-period">/mo</span>' +
+        "</p>";
+    var cta = comingSoon
+      ? '<span class="pricing-cta pricing-cta-disabled">Coming soon</span>'
+      : '<a class="btn-secondary pricing-cta" data-href="/get-started.html" href="get-started.html">Contact us</a>';
+
     return (
-      '<article class="pricing-card pricing-card-addon">' +
+      '<article class="pricing-card pricing-card-addon' +
+      (comingSoon ? " pricing-card-coming-soon" : "") +
+      '">' +
       '<h3 class="pricing-plan-name">' +
       addon.name +
       "</h3>" +
       '<p class="pricing-tagline">' +
       addon.description +
       "</p>" +
-      '<p class="pricing-amount">' +
-      '<span class="pricing-amount-value">' +
-      formatMoney(addon.monthly) +
-      "</span>" +
-      '<span class="pricing-amount-period">/mo</span>' +
-      "</p>" +
+      amountBlock +
       note +
-      '<a class="btn-secondary pricing-cta" data-href="/get-started.html" href="get-started.html">Contact us</a>' +
+      cta +
       "</article>"
     );
   }
@@ -121,6 +131,20 @@
       return (
         '<td class="pricing-compare-cell pricing-compare-no">' +
         '<span class="pricing-compare-dash" aria-label="Not included">—</span>' +
+        "</td>"
+      );
+    }
+    if (value === "Coming soon") {
+      return (
+        '<td class="pricing-compare-cell pricing-compare-coming-soon">' +
+        '<span class="pricing-compare-soon-label">Coming soon</span>' +
+        "</td>"
+      );
+    }
+    if (value === "Add-on") {
+      return (
+        '<td class="pricing-compare-cell pricing-compare-addon-label">' +
+        '<span class="pricing-compare-addon-pill">Add-on</span>' +
         "</td>"
       );
     }
@@ -249,8 +273,12 @@
         data.fleetPlans
       );
 
+      var paidAddons = document.getElementById("pricing-paid-addons-grid");
       var shopAddons = document.getElementById("pricing-shop-addons-grid");
       var operatorAddons = document.getElementById("pricing-operator-addons-grid");
+      if (paidAddons && data.paidAddons) {
+        paidAddons.innerHTML = data.paidAddons.map(renderAddonCard).join("");
+      }
       if (shopAddons && data.shopAddons) {
         shopAddons.innerHTML = data.shopAddons.map(renderAddonCard).join("");
       }
