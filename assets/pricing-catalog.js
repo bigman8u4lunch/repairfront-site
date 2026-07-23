@@ -15,10 +15,13 @@ window.REPAIRFRONT_PRICING = {
       features: [
         "Work orders, customers & units",
         "Invoicing & manual payments",
+        "Parts, inventory & purchase orders",
         "Stripe online & terminal payments",
         "QuickBooks sync",
+        "Time clock & shop production tracking",
+        "Operational, profitability & finance reports",
+        "Mobile travel mileage billing",
         "Service history & canned jobs",
-        "Basic operational reports",
         "Email support",
       ],
     },
@@ -32,10 +35,9 @@ window.REPAIRFRONT_PRICING = {
       recommended: true,
       features: [
         "Everything in Starter",
-        "Parts, inventory & purchase orders",
-        "Time clock & production reports",
-        "Profitability & finance reports",
-        "AI work-order assist",
+        "Shop Connect (fleet vendor connections)",
+        "AI work-order assist & parts suggestions",
+        "Smart invoice narratives",
       ],
     },
     {
@@ -49,8 +51,7 @@ window.REPAIRFRONT_PRICING = {
         "Everything in Professional",
         "Customer portal (login, pay, approve lines)",
         "Portal service requests & PM visibility",
-        "Fleet & PM reporting",
-        "Mobile travel mileage billing",
+        "Inventory demand forecast (ML)",
       ],
     },
   ],
@@ -142,13 +143,7 @@ window.REPAIRFRONT_PRICING = {
             business: true,
           },
           {
-            feature: "Service history & canned jobs",
-            starter: true,
-            professional: true,
-            business: true,
-          },
-          {
-            feature: "Basic operational reports",
+            feature: "Parts, inventory & purchase orders",
             starter: true,
             professional: true,
             business: true,
@@ -166,25 +161,48 @@ window.REPAIRFRONT_PRICING = {
             business: true,
           },
           {
-            feature: "Parts, inventory & purchase orders",
+            feature: "Time clock & shop production tracking",
+            starter: true,
+            professional: true,
+            business: true,
+          },
+          {
+            feature: "Operational, profitability & finance reports",
+            starter: true,
+            professional: true,
+            business: true,
+          },
+          {
+            feature: "Mobile travel mileage billing",
+            starter: true,
+            professional: true,
+            business: true,
+          },
+          {
+            feature: "Service history & canned jobs",
+            starter: true,
+            professional: true,
+            business: true,
+          },
+        ],
+      },
+      {
+        name: "Growth & AI",
+        rows: [
+          {
+            feature: "Shop Connect (fleet vendor connections)",
             starter: false,
             professional: true,
             business: true,
           },
           {
-            feature: "Time clock & production reports",
+            feature: "AI work-order assist & parts suggestions",
             starter: false,
             professional: true,
             business: true,
           },
           {
-            feature: "Profitability & finance reports",
-            starter: false,
-            professional: true,
-            business: true,
-          },
-          {
-            feature: "AI work-order assist",
+            feature: "Smart invoice narratives",
             starter: false,
             professional: true,
             business: true,
@@ -192,7 +210,7 @@ window.REPAIRFRONT_PRICING = {
         ],
       },
       {
-        name: "Customer & fleet accounts",
+        name: "Customer portal & forecasting",
         rows: [
           {
             feature: "Customer portal (login, pay, approve lines)",
@@ -207,13 +225,7 @@ window.REPAIRFRONT_PRICING = {
             business: true,
           },
           {
-            feature: "Fleet & PM reporting",
-            starter: false,
-            professional: false,
-            business: true,
-          },
-          {
-            feature: "Mobile travel mileage billing",
+            feature: "Inventory demand forecast (ML)",
             starter: false,
             professional: false,
             business: true,
