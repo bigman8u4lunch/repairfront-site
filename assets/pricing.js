@@ -102,6 +102,99 @@
     }).join("");
   }
 
+  function planNameById(plans, id) {
+    for (var i = 0; i < plans.length; i++) {
+      if (plans[i].id === id) return plans[i].name;
+    }
+    return id;
+  }
+
+  function renderMatrixCell(value) {
+    if (value === true) {
+      return (
+        '<td class="pricing-compare-cell pricing-compare-yes">' +
+        '<span class="pricing-compare-check" aria-label="Included">✓</span>' +
+        "</td>"
+      );
+    }
+    if (value === false || value == null) {
+      return (
+        '<td class="pricing-compare-cell pricing-compare-no">' +
+        '<span class="pricing-compare-dash" aria-label="Not included">—</span>' +
+        "</td>"
+      );
+    }
+    return (
+      '<td class="pricing-compare-cell pricing-compare-value">' +
+      String(value) +
+      "</td>"
+    );
+  }
+
+  function renderFeatureMatrix(containerId, matrix, plans) {
+    var container = document.getElementById(containerId);
+    if (!container || !matrix || !matrix.planIds || !matrix.groups) {
+      if (container) container.innerHTML = "";
+      return;
+    }
+
+    var headers = matrix.planIds
+      .map(function (id) {
+        return (
+          '<th scope="col" class="pricing-compare-plan">' +
+          planNameById(plans || [], id) +
+          "</th>"
+        );
+      })
+      .join("");
+
+    var body = matrix.groups
+      .map(function (group) {
+        var groupRow =
+          '<tr class="pricing-compare-group">' +
+          '<th scope="rowgroup" colspan="' +
+          (matrix.planIds.length + 1) +
+          '">' +
+          group.name +
+          "</th>" +
+          "</tr>";
+
+        var rows = (group.rows || [])
+          .map(function (row) {
+            var cells = matrix.planIds
+              .map(function (id) {
+                return renderMatrixCell(row[id]);
+              })
+              .join("");
+            return (
+              "<tr>" +
+              '<th scope="row" class="pricing-compare-feature">' +
+              row.feature +
+              "</th>" +
+              cells +
+              "</tr>"
+            );
+          })
+          .join("");
+
+        return groupRow + rows;
+      })
+      .join("");
+
+    container.innerHTML =
+      '<table class="pricing-compare-table">' +
+      "<thead>" +
+      "<tr>" +
+      '<th scope="col" class="pricing-compare-feature-head">Feature</th>' +
+      headers +
+      "</tr>" +
+      "</thead>" +
+      "<tbody>" +
+      body +
+      "</tbody>" +
+      "</table>";
+  }
+
   function wirePricing() {
     var root = document.querySelector("[data-pricing-root]");
     if (!root) return;
@@ -145,6 +238,16 @@
 
       renderPlans("pricing-shop-grid", data.shopPlans, interval);
       renderPlans("pricing-fleet-grid", data.fleetPlans, interval);
+      renderFeatureMatrix(
+        "pricing-shop-compare-table",
+        data.shopFeatureMatrix,
+        data.shopPlans
+      );
+      renderFeatureMatrix(
+        "pricing-fleet-compare-table",
+        data.fleetFeatureMatrix,
+        data.fleetPlans
+      );
 
       var shopAddons = document.getElementById("pricing-shop-addons-grid");
       var operatorAddons = document.getElementById("pricing-operator-addons-grid");
