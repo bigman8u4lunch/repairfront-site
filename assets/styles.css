@@ -1224,7 +1224,8 @@ img {
 
 .pricing-cta {
   margin-top: 1.5rem;
-  width: 100%;
+  width: auto;
+  align-self: flex-start;
   text-align: center;
 }
 
@@ -1266,19 +1267,9 @@ img {
   opacity: 0.92;
 }
 
-.pricing-cta-disabled {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.pricing-card-coming-soon .pricing-coming-soon {
   margin-top: auto;
-  padding: 0.625rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--surface-muted);
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: default;
+  padding-top: 1.5rem;
 }
 
 .pricing-compare-coming-soon .pricing-compare-soon-label {

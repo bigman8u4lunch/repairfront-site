@@ -84,7 +84,7 @@
         '<span class="pricing-amount-period">/mo</span>' +
         "</p>";
     var cta = comingSoon
-      ? '<span class="pricing-cta pricing-cta-disabled">Coming soon</span>'
+      ? ""
       : '<a class="btn-secondary pricing-cta" data-href="/get-started.html" href="get-started.html">Contact us</a>';
 
     return (
