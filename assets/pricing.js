@@ -107,8 +107,8 @@
       '<p class="pricing-tagline">' +
       addon.description +
       "</p>" +
-      amountBlock +
       note +
+      amountBlock +
       cta +
       "</article>"
     );
