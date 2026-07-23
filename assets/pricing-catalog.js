@@ -15,6 +15,8 @@ window.REPAIRFRONT_PRICING = {
       features: [
         "Work orders, customers & units",
         "Invoicing & manual payments",
+        "Stripe online & terminal payments",
+        "QuickBooks sync",
         "Service history & canned jobs",
         "Basic operational reports",
         "Email support",
@@ -30,8 +32,6 @@ window.REPAIRFRONT_PRICING = {
       recommended: true,
       features: [
         "Everything in Starter",
-        "Stripe online & terminal payments",
-        "QuickBooks sync",
         "Parts, inventory & purchase orders",
         "Time clock & production reports",
         "Profitability & finance reports",
@@ -155,13 +155,13 @@ window.REPAIRFRONT_PRICING = {
           },
           {
             feature: "Stripe online & terminal payments",
-            starter: false,
+            starter: true,
             professional: true,
             business: true,
           },
           {
             feature: "QuickBooks sync",
-            starter: false,
+            starter: true,
             professional: true,
             business: true,
           },
