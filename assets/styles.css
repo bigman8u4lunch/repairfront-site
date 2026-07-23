@@ -1224,7 +1224,8 @@ img {
 
 .pricing-cta {
   margin-top: 1.5rem;
-  width: 100%;
+  width: auto;
+  align-self: flex-start;
   text-align: center;
 }
 
